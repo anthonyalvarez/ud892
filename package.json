@@ -1,0 +1,29 @@
+{
+  "name": "ud892",
+  "version": "1.0.0",
+  "description": "Installing Gulp and Course Code",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonyalvarez/ud892.git"
+  },
+  "keywords": [
+    "gulp",
+    "dev",
+    "build",
+    "tools",
+    "frontend"
+  ],
+  "author": "Anthony E. Alvarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonyalvarez/ud892/issues"
+  },
+  "homepage": "https://github.com/anthonyalvarez/ud892#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
