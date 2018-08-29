@@ -24,6 +24,14 @@
   },
   "homepage": "https://github.com/anthonyalvarez/ud892#readme",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp-eslint": "^5.0.0",
+    "gulp-jasmine-phantom": "^3.0.0",
+    "gulp-sass": "^4.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "eslint": "^5.4.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0"
   }
 }
