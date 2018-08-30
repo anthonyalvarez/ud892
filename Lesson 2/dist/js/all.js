@@ -1,0 +1,2 @@
+foo=1;
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uanMiXSwibmFtZXMiOlsiZm9vIl0sIm1hcHBpbmdzIjoiQUFFQUEsSUFBQSIsImZpbGUiOiJhbGwuanMiLCJzb3VyY2VzQ29udGVudCI6WyIoZnVuY3Rpb24gKCkge1xuXG4gIGZvbyA9IDE7XG59KSgpOyJdfQ==
