@@ -6,14 +6,18 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var eslint = require('gulp-eslint');
 var jasmine = require('gulp-jasmine-phantom');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var babel = require('gulp-babel');
+var sourcemaps = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
+const imageminPngquant = require('imagemin-pngquant');
 
-
-gulp.task('default', ['copy-html', 'copy-images','styles', 'lint'], function() {
+gulp.task('default', ['copy-html', 'image-min','styles', 'lint'], function() {
   gulp.watch('sass/**/*.scss', ['styles'] );
   gulp.watch('js/**/*.js', ['lint']);
   gulp.watch('/index.html', ['copy-html']);
   gulp.watch('./dist/index.html').on('change', browserSync.reload);
-  console.log('hello world!');
   browserSync.init({
     server: './dist'
   });
@@ -57,3 +61,36 @@ gulp.task('copy-images', function(){
     .pipe(gulp.dest('dist/img'));
 });
 
+gulp.task('scripts', function(){
+  gulp.src('js/**/*.js')
+    .pipe(babel())
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('scripts-dist', function(){
+  gulp.src('js/**/*.js')
+    .pipe(babel())
+    .pipe(sourcemaps.init())
+    .pipe(concat('all.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('dist', [
+  'copy-html',
+  'image-min',
+  'styles',
+  'lint',
+  'scripts-dist'
+]);
+
+gulp.task('image-min', function() {
+  return gulp.src('img/*')
+    .pipe(imagemin({
+      progressive: true,
+      use: [imageminPngquant()]
+    }))
+    .pipe(gulp.dest('dist/img'));
+});
